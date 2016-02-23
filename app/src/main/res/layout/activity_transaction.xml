@@ -37,14 +37,14 @@
         android:columnCount="4"
         android:rowCount="2"
         android:id="@+id/gridLayout"
-        android:layout_marginTop="44dp"
         android:layout_below="@+id/mAmount"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="49dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="61dp"
             android:orientation="horizontal"
             android:layout_below="@+id/mAmount"
             android:layout_alignParentLeft="true"
@@ -54,56 +54,72 @@
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_menu_rotate"
+                android:src="@drawable/cent"
+                android:scaleType="fitCenter"
                 android:layout_weight="1"
+                android:background="#FFB300"
                 android:contentDescription="@null" />
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_menu_rotate"
+                android:src="@drawable/nickel"
+                android:scaleType="fitCenter"
                 android:layout_weight="1"
+                android:background="#FFB300"
                 android:contentDescription="@null" />
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_menu_rotate"
+                android:scaleType="fitCenter"
+                android:src="@drawable/dime"
                 android:layout_weight="1"
+                android:background="#FFB300"
                 android:contentDescription="@null" />
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_menu_rotate"
+                android:scaleType="fitCenter"
+                android:src="@drawable/quat"
                 android:layout_weight="1"
+                android:background="#FFB300"
                 android:contentDescription="@null" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="61dp"
             android:orientation="horizontal">
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_menu_rotate"
+                android:scaleType="fitCenter"
+                android:src="@drawable/onedollar"
+                android:background="#FFB300"
                 android:layout_weight="1"
                 android:contentDescription="@null" />
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_menu_rotate"
+                android:scaleType="fitCenter"
+                android:background="#FFB300"
+                android:src="@drawable/fivedollar"
                 android:layout_weight="1"
                 android:contentDescription="@null" />
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_menu_rotate"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tendollar"
                 android:layout_weight="1"
+                android:background="#FFB300"
                 android:contentDescription="@null" />
             <ImageButton
                 android:layout_width="0dp"
+                android:scaleType="fitCenter"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_menu_rotate"
+                android:src="@drawable/twentydollar"
                 android:layout_weight="1"
+                android:background="#FFB300"
                 android:contentDescription="@null" />
         </LinearLayout>
         </GridLayout>
@@ -127,13 +143,19 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_margin="8dp"
+                android:verticalSpacing="10dp"
+                android:horizontalSpacing="10dp"
                 android:contentDescription="@null"
+                android:background="#76FF03"
                 android:text="deposit" />
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_margin="8dp"
                 android:contentDescription="@null"
+                android:background="#FF5252"
                 android:text="withdrawl" />
         </LinearLayout>
         <LinearLayout
@@ -144,7 +166,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_margin="8dp"
                 android:contentDescription="@null"
+                android:background="#8D6E63"
                 android:text="undo" />
         </LinearLayout>
     </GridLayout>
@@ -155,9 +179,19 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="$ 0.00"
         android:id="@+id/textView"
+        android:layout_marginBottom="27dp"
         android:layout_above="@+id/gridLayout2"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Your Current Transaction Amount:"
+        android:id="@+id/textView3"
+        android:layout_above="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="58dp" />
+        android:layout_marginBottom="23dp" />
 
 
 </RelativeLayout>
