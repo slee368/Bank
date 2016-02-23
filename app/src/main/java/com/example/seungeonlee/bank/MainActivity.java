@@ -18,7 +18,7 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int cmoney;
+    private static int cmoney;
     private FloatingActionButton fab;
     private TextView balance;
     private SharedPreferences myPrefs;
@@ -36,12 +36,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         Context context = getApplicationContext();  // app level storage
         myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor peditor = myPrefs.edit();
-
         peditor.putInt("currentBalance", 0);
         peditor.commit();
+
+        /**
+        if (savedInstanceState == null) {
+            peditor.putInt("currentBalance", 0);
+            peditor.commit();
+        } else {
+            cmoney = savedInstanceState.getInt("currentBalance", 0);
+            peditor.putInt("currentBalance", 0);
+            peditor.commit();
+
+        }
+         **/
+
     }
 
     @Override
@@ -58,6 +71,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+        /**
+        cmoney = myPrefs.getInt("currentBalance", 0);
+
+        double balanceDec = ((double) cmoney) / 100.00;
+
+        balance = (TextView) findViewById(R.id.mAmount);
+        balance.setText(String.format("$ %.2f", balanceDec));
+         **/
         super.onResume();
     }
 
@@ -69,6 +90,15 @@ public class MainActivity extends AppCompatActivity {
         peditor.commit();
 
         super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        SharedPreferences.Editor peditor = myPrefs.edit();
+        peditor.putInt("currentBalance", cmoney);
+        peditor.commit();
+
+        super.onStop();
     }
 
     @Override
