@@ -13,7 +13,7 @@ import java.util.Stack;
 public class TransactionActivity extends AppCompatActivity {
 
     private TextView balance;
-    private int cmoney;
+    private static int cmoney;
     private SharedPreferences myPrefs;
 
     private int currTrans;

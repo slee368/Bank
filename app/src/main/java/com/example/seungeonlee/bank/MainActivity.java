@@ -70,6 +70,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onRestart() {
+        super.onRestart();
+
+        cmoney = myPrefs.getInt("currentBalance", 0);
+
+        double balanceDec = ((double) cmoney) / 100.00;
+
+        balance = (TextView) findViewById(R.id.mAmount);
+        balance.setText(String.format("$ %.2f", balanceDec));
+    }
+
+    @Override
     protected void onResume() {
         /**
         cmoney = myPrefs.getInt("currentBalance", 0);
