@@ -56,6 +56,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/cent"
                 android:scaleType="fitCenter"
+                android:clickable="true"
+                android:onClick="clickedPenny"
                 android:layout_weight="1"
                 android:background="#FFB300"
                 android:contentDescription="@null" />
@@ -64,6 +66,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/nickel"
                 android:scaleType="fitCenter"
+                android:clickable="true"
+                android:onClick="clickedNickel"
                 android:layout_weight="1"
                 android:background="#FFB300"
                 android:contentDescription="@null" />
@@ -72,6 +76,8 @@
                 android:layout_height="wrap_content"
                 android:scaleType="fitCenter"
                 android:src="@drawable/dime"
+                android:clickable="true"
+                android:onClick="clickedDime"
                 android:layout_weight="1"
                 android:background="#FFB300"
                 android:contentDescription="@null" />
@@ -80,6 +86,8 @@
                 android:layout_height="wrap_content"
                 android:scaleType="fitCenter"
                 android:src="@drawable/quat"
+                android:clickable="true"
+                android:onClick="clickedQuat"
                 android:layout_weight="1"
                 android:background="#FFB300"
                 android:contentDescription="@null" />
@@ -94,6 +102,8 @@
                 android:layout_height="wrap_content"
                 android:scaleType="fitCenter"
                 android:src="@drawable/onedollar"
+                android:clickable="true"
+                android:onClick="clickedOne"
                 android:background="#FFB300"
                 android:layout_weight="1"
                 android:contentDescription="@null" />
@@ -103,6 +113,8 @@
                 android:scaleType="fitCenter"
                 android:background="#FFB300"
                 android:src="@drawable/fivedollar"
+                android:clickable="true"
+                android:onClick="clickedFive"
                 android:layout_weight="1"
                 android:contentDescription="@null" />
             <ImageButton
@@ -110,6 +122,8 @@
                 android:layout_height="wrap_content"
                 android:scaleType="fitCenter"
                 android:src="@drawable/tendollar"
+                android:clickable="true"
+                android:onClick="clickedTen"
                 android:layout_weight="1"
                 android:background="#FFB300"
                 android:contentDescription="@null" />
@@ -119,6 +133,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/twentydollar"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:onClick="clickedTwenty"
                 android:background="#FFB300"
                 android:contentDescription="@null" />
         </LinearLayout>
@@ -147,6 +163,8 @@
                 android:verticalSpacing="10dp"
                 android:horizontalSpacing="10dp"
                 android:contentDescription="@null"
+                android:clickable="true"
+                android:onClick="clickedDeposit"
                 android:background="#76FF03"
                 android:text="deposit" />
             <Button
@@ -156,6 +174,8 @@
                 android:layout_margin="8dp"
                 android:contentDescription="@null"
                 android:background="#FF5252"
+                android:clickable="true"
+                android:onClick="clickedWithdrawal"
                 android:text="withdrawl" />
         </LinearLayout>
         <LinearLayout
@@ -169,6 +189,8 @@
                 android:layout_margin="8dp"
                 android:contentDescription="@null"
                 android:background="#8D6E63"
+                android:clickable="true"
+                android:onClick="clickedUndo"
                 android:text="undo" />
         </LinearLayout>
     </GridLayout>
@@ -178,7 +200,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="$ 0.00"
-        android:id="@+id/textView"
+        android:id="@+id/currtrans"
         android:layout_marginBottom="27dp"
         android:layout_above="@+id/gridLayout2"
         android:layout_centerHorizontal="true" />
@@ -189,7 +211,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Your Current Transaction Amount:"
         android:id="@+id/textView3"
-        android:layout_above="@+id/textView"
+        android:layout_above="@+id/currtrans"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="23dp" />
 

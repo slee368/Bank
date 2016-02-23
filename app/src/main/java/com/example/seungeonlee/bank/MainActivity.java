@@ -1,7 +1,10 @@
 package com.example.seungeonlee.bank;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -9,21 +12,63 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
+
+    private int cmoney;
+    private FloatingActionButton fab;
+    private TextView balance;
+    private SharedPreferences myPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addTransaction();
             }
         });
+
+        Context context = getApplicationContext();  // app level storage
+        myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor peditor = myPrefs.edit();
+
+        peditor.putInt("currentBalance", 0);
+        peditor.commit();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        cmoney = myPrefs.getInt("currentBalance", 0);
+
+        double balanceDec = ((double) cmoney) / 100.00;
+
+        balance = (TextView) findViewById(R.id.mAmount);
+        balance.setText(String.format("$ %.2f", balanceDec));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+
+        SharedPreferences.Editor peditor = myPrefs.edit();
+        peditor.putInt("currentBalance", cmoney);
+        peditor.commit();
+
+        super.onPause();
     }
 
     @Override
