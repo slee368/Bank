@@ -1,0 +1,18 @@
+Nick Hale
+nhale1@jhu.edu
+David Li
+
+
+We decided to use the same style as DankBank for our main menu, using a minimalistic
+main screen with a floating action button that takes the user to the transaction
+page. We changed the color scheme of this page to better suit use by children,
+replacing the dark grey/purple theme with a brighter orange/pink theme.
+
+We chose not to add a confirmation dialog because we deemed it unnecessary for an
+application as basic as this, as the user can simply undo the transaction themselves
+by making the opposite transaction directly after.
+
+The thing that caused us the most confusion was trying to get the data to remain
+after completely closing the app. Eventually we realized this is more difficult
+than we thought and not necessary according to the specifications of this
+assignment.
