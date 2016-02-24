@@ -1,6 +1,7 @@
 package com.example.seungeonlee.bank;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -27,7 +28,6 @@ public class TransactionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaction);
-
         Context context = getApplicationContext();  // app level storage
         myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         cmoney = myPrefs.getInt("currentBalance", 0);
@@ -40,47 +40,59 @@ public class TransactionActivity extends AppCompatActivity {
     }
 
     public void clickedPenny(View view){
+        addToUndoStack(1);
         addTrans(1);
     }
 
     public void clickedNickel(View view){
+        addToUndoStack(5);
         addTrans(5);
     }
 
     public void clickedDime(View view){
+        addToUndoStack(10);
         addTrans(10);
     }
 
     public void clickedQuat(View view){
+        addToUndoStack(25);
         addTrans(25);
     }
 
     public void clickedOne(View view){
+        addToUndoStack(100);
         addTrans(100);
     }
 
     public void clickedFive(View view){
+        addToUndoStack(500);
         addTrans(500);
     }
 
     public void clickedTen(View view){
+        addToUndoStack(1000);
         addTrans(1000);
     }
 
     public void clickedTwenty(View view){
+        addToUndoStack(2000);
         addTrans(2000);
+    }
+
+    protected void addToUndoStack(int n){
+        transLog.push((-1) * n);
     }
 
     public void clickedDeposit(View view){
         if (currTrans != 0) {
             cmoney = cmoney + currTrans;
-            transLog.push((-1) * currTrans);
             currTrans = 0;
 
             dispTrans();
             dispBalance();
             saveBalance();
         }
+        finish();
     }
 
     public void clickedWithdrawal(View view){
@@ -88,8 +100,6 @@ public class TransactionActivity extends AppCompatActivity {
             cmoney = cmoney - currTrans;
             if (cmoney < 0) {
                 cmoney = 0;
-            } else {
-                transLog.push(currTrans);
             }
             currTrans = 0;
 
@@ -97,14 +107,14 @@ public class TransactionActivity extends AppCompatActivity {
             dispBalance();
             saveBalance();
         }
+        finish();
     }
 
     public void clickedUndo(View view){
         if (!transLog.isEmpty()) {
             int temp = transLog.pop();
-            cmoney = cmoney + temp;
-            dispBalance();
-            saveBalance();
+            addTrans(temp);
+            dispTrans();
         }
     }
 
